@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+  .app-background {
+    background-image: url('./assets/images/app-background.jpg');
+    background-size: cover;
+    left: 0;
+    right: 0;
+    position: fixed;
+    opacity: 0.8;
+  }
+
+  
+  .bg-gradient {
+    @apply transition duration-200 ease-in-out py-2 px-4 font-semibold rounded shadow;
+  }
+
+  .bg-gradient.blue {
+    @apply bg-gradient-to-r from-purple-400 to-blue-500 hover:from-purple-400 hover:to-blue-600;
+  }
+}
+
+input:focus {
+  outline:none;
+}
+textarea:focus {
+  outline:none;
+}
+
+/*--------------fonts---------------*/
+
+.font-face-mb {
+  font-family: "Montserrat-Bold";
+}
+
+.font-face-me {
+  font-family: "Montserrat-ExtraBold";
+}
+
+.font-face-ml {
+  font-family: "Montserrat-Light";
+}
+
+.font-face-mm {
+  font-family: "Montserrat-Medium";
+}
+
+.font-face-mr {
+  font-family: "Montserrat-Regular";
+}
+
+.font-face-ms {
+  font-family: "Montserrat-SemiBold";
+}
+
+
+/*--------------animations---------------*/
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 1s ease-out;
+}
+
+.animate-slide-out-right {
+  animation: slideOutRight 1s ease-out;
+}
