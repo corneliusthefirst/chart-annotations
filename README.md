@@ -1,6 +1,8 @@
 
 # Fentech App
 
+React + Typescript + Tailwind CSS + Redux-toolkit
+
 # Functionalities
 
 Mobile responsive App with two parts and unit testing.
