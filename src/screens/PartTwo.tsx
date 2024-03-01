@@ -4,6 +4,7 @@ import Chart from "react-apexcharts"
 import Grid from "../components/Grid"
 import { usePartTwo } from "../hooks/usePartTwo"
 import Loader from "../components/Loader"
+import SelectIndicator from "../components/SelectIndicator"
 
 const PartTwo: React.FC = React.memo(() => {
   const { stockData, chartOptions, isLoading, chartRef } = usePartTwo()
@@ -25,9 +26,10 @@ const PartTwo: React.FC = React.memo(() => {
           )}
 
           <div
-            className={`flex flex-col bg-white p-4 shadow-md rounded-lg min-h-96`}
+            className={`flex flex-col bg-white p-4 shadow-md rounded-lg h-96`}
             data-testid="chart-component"
           >
+            <SelectIndicator />
             <Chart
               ref={chartRef}
               type="line"

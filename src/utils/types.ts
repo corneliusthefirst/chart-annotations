@@ -1,9 +1,3 @@
-import { SVGProps } from "react"
-
-export interface IconPropsType extends SVGProps<SVGSVGElement> {
-  id: string;
-}
-
 export interface Todo {
   id: number;
   text: string;
