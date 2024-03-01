@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react"
+import React, {  useState } from "react"
 import { Description } from "../utils/types"
 
 interface DescriptionModalProps {
-  onClose: (descriptionBody: Description) => void
+  onClose: (descriptionBody: Description | null ) => void
   description: Description
 }
 
@@ -17,14 +17,19 @@ const DescriptionModal: React.FC<DescriptionModalProps> = ({
     setText(value)
   }
 
-  const handleButtonClick = () => {
+  const handleSave = () => {
     onClose({ ...description, text: text })
     setText("")
   }
 
+  const handleCancel = () => {
+    onClose(null)
+    setText("")
+  }
+
   return (
-    <div className="py-3 px-8 bg-white rounded-xl shadow-lg">
-      <h2 className="text-lg font-face-mb font-bold text-gray-500 mb-4">
+    <div className="bg-white rounded-xl shadow-lg px-8 py-4">
+      <h2 className="text-lg font-face-mb font-bold text-gray-500 mb-4 ">
         Add a description
       </h2>
       <textarea
@@ -34,12 +39,18 @@ const DescriptionModal: React.FC<DescriptionModalProps> = ({
         value={text}
         onChange={handleChange}
       />
-      <div className="flex mb-2">
+      <div className="flexflex-col  mb-2">
         <button
-          className="w-full px-4 py-2 bg-gradient blue text-white rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
-          onClick={handleButtonClick}
+          className="w-full px-4 py-2 bg-gradient blue text-white text-md font-face-mm rounded-md  focus:outline-none"
+          onClick={handleSave}
         >
           Save
+        </button>
+        <button
+          className="w-full px-4 py-2 bg-gradient red text-white text-md font-face-mm rounded-md  focus:outline-none mt-2"
+          onClick={handleCancel}
+        >
+          Cancel
         </button>
       </div>
     </div>

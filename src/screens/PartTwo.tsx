@@ -16,12 +16,18 @@ const PartTwo: React.FC = React.memo(() => {
       {stockData.length > 0 && (
         <>
           {isLoading && (
-            <div className="flex justify-center items-center bg-gray-100 p-4 shadow-md rounded-lg min-h-96 mb-8">
+            <div
+              data-testid="loader-component"
+              className="flex justify-center items-center bg-gray-100 p-4 shadow-md rounded-lg min-h-96 mb-8"
+            >
               <Loader />
             </div>
           )}
 
-          <div className="flex flex-col bg-white p-4 shadow-md rounded-lg min-h-96">
+          <div
+            className={`flex flex-col bg-white p-4 shadow-md rounded-lg min-h-96`}
+            data-testid="chart-component"
+          >
             <Chart
               ref={chartRef}
               type="line"
@@ -31,7 +37,10 @@ const PartTwo: React.FC = React.memo(() => {
             />
           </div>
 
-          <div className="flex flex-col bg-white p-4 shadow-md rounded-lg my-8">
+          <div
+            className="flex flex-col bg-white p-4 shadow-md rounded-lg my-8"
+            data-testid="grid-component"
+          >
             <Grid />
           </div>
         </>

@@ -1,4 +1,4 @@
-import { Modal } from "./../../components/Modal"
+import Modal  from "./../../components/Modal"
 import React, { createContext, useContext, useState } from "react"
 
 interface ModalProviderProps {

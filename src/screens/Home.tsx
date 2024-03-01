@@ -5,8 +5,11 @@ import PartOne from './PartOne';
 import PartTwo from './PartTwo';
 import { useAppDispatch } from '../store';
 import { fetchStockDataAsync } from '../store/slices/partTwoSlice';
+import { useModal } from '../contexts/modal-context/modal-context';
+import OnboardingModal from '../components/OnboardingModal';
 
 const Home: React.FC = () => {
+  const {showModal} = useModal()
   const tabs = [
     { id: 1, title: 'Part 1', content: <PartOne/> },
     { id: 2, title: 'Part 2', content:  <PartTwo />},
@@ -15,6 +18,7 @@ const Home: React.FC = () => {
 
   useEffect(()=>{
     const init = async () =>{
+      showModal(<OnboardingModal />)
       dispatch(fetchStockDataAsync())
     }
     init()

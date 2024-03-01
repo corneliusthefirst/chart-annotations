@@ -13,6 +13,7 @@ const TodoItem: React.FC<TodoItemProps> = React.memo(({ todo, onRemove }) => {
 
   return (
     <li
+      data-testid={`remove-todo-${todo.id}`}
       onClick={handleRemove}
       className="bg-gray-100 hover:bg-gray-200 shadow-md rounded w-full py-6 px-6 mt-8"
     >

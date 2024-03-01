@@ -37,9 +37,6 @@ const partTwoSlice = createSlice({
         (description) => description.id !== action.payload
       )
     },
-    clearError(state) {
-      state.error = ""
-    }
   },
   extraReducers: (builder) => {
     builder
@@ -61,6 +58,6 @@ const partTwoSlice = createSlice({
   },
 })
 
-export const { addDescription, removeDescription, clearError } = partTwoSlice.actions
+export const { addDescription, removeDescription } = partTwoSlice.actions
 
 export default partTwoSlice.reducer

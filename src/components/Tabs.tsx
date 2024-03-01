@@ -1,7 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react"
-import { useAppDispatch, useAppSelector } from "../store"
-import { selectPartTwo } from "../store/selectors"
-import { clearError } from "../store/slices/partTwoSlice"
+import React, { useMemo, useState } from "react"
 
 type Tab = {
   id: number
@@ -15,8 +12,6 @@ type TabsProps = {
 
 const Tabs: React.FC<TabsProps> = ({ tabs }) => {
   const [activeTab, setActiveTab] = useState<number>(tabs[0].id)
-  const dispatch = useAppDispatch()
-  const { error } = useAppSelector(selectPartTwo)
 
   const Tab = ({ tab, index }: { tab: Tab; index: number }) => {
     const tabStyle = useMemo(
@@ -27,17 +22,6 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
       [activeTab]
     )
 
-    useEffect(() => {
-      let timeout: NodeJS.Timeout
-      if (error) {
-        // Set timeout to clear the error after 1 seconds
-        timeout = setTimeout(() => {
-          dispatch(clearError())
-        }, 1000)
-      }
-
-      return () => clearTimeout(timeout)
-    }, [error])
 
     return (
       <button
@@ -59,11 +43,7 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
           <Tab key={tab.id} tab={tab} index={index} />
         ))}
       </div>
-      {error && (
-        <div className="flex justify-center items-center w-full">
-          <p className="text-md text-red-500">{error}</p>
-        </div>
-      )}
+
       <div className="flex justify-center mt-8">
         {tabs.find((tab) => tab.id === activeTab)?.content}
       </div>
