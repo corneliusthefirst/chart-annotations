@@ -44,6 +44,14 @@ export const usePartTwo = () => {
     },
     xaxis: {
       type: "datetime",
+      title: {
+        text: "Date"
+      }
+    },
+    yaxis: {
+      title: {
+        text: "Stock Price"
+      }
     },
     markers: {
       size: 4,

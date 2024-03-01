@@ -26,7 +26,7 @@ const PartTwo: React.FC = React.memo(() => {
           )}
 
           <div
-            className={`flex flex-col bg-white p-4 shadow-md rounded-lg h-96`}
+            className={`flex flex-col bg-white p-4 shadow-md rounded-lg`}
             data-testid="chart-component"
           >
             <SelectIndicator />
